@@ -1,0 +1,93 @@
+Vagrant.configure("2") do |config|
+	# plugins
+
+	# use our custom installer
+#	if defined? VagrantVbguest
+#		config.vbguest.installer = MyInstaller
+#	end
+
+	# For more information please check http://docs.vagrantup.com/v2/synced-folders/basic_usage.html
+# TODO does the box need anything installed for this to work?
+	if Vagrant.has_plugin?("vagrant-cachier")
+		# Configure cached packages to be shared between instances of the same base box.
+		# More info on http://fgrehm.viewdocs.io/vagrant-cachier/usage
+		config.cache.scope = :box
+
+		# OPTIONAL: If you are using VirtualBox, you might want to use that to enable
+		# NFS for shared folders. This is also very useful for vagrant-libvirt if you
+		# want bi-directional sync
+=begin
+		config.cache.synced_folder_opts = {
+			type: :nfs,
+			# The nolock option can be useful for an NFSv3 client that wants to avoid the
+			# NLM sideband protocol. Without this option, apt-get might hang if it tries
+			# to lock files needed for /var/cache/* operations. All of this can be avoided
+			# by using NFSv4 everywhere. Please note that the tcp option is not the default.
+			mount_options: ['rw', 'vers=3', 'nolock', 'hard', 'intr']
+		}
+=end
+	end
+
+	# (optional) public network for sharing
+	if (bridge = ['bridge', 'BRIDGE'].reduce(false) { |acc, key| acc || ENV[key] } )
+		config.vm.network :public_network, type: :dhcp, bridge: bridge
+	end
+
+	# local provision script
+	config.vm.provision :shell, :path => 'local_provision.sh' if File.file?('local_provision.sh')
+
+	#############
+	# now just some regular giggery-pokery
+
+	# upload all required files first, so we can provision with a single shell command
+
+	# copy authorized_keys to the VM
+	config.vm.provision :file, :source => ENV['HOME'] + '/.ssh/id_rsa.pub', :destination => '/tmp/authorized_keys'
+
+	# vim configuration
+	config.vm.provision :file, :source => ENV['HOME'] + '/.vimrc', :destination => '/tmp/vimrc'
+
+	# setup git
+	config.vm.provision :shell, :inline => <<-EOSH
+	
+		# ssh config
+		mkdir -p ~/.ssh && mv /tmp/authorized_keys ~/.ssh && chown -R root ~/.ssh
+
+		# reasonable editor
+		cp /tmp/vimrc /root/.vimrc
+
+		# tsc clocksource is sucking, just go straight to acpi_pm - note: this'll need a reboot to take effect
+		[[ -f /etc/grub.conf ]] && sed -ri -e "/^\s*kernel/ s/($| clocksource=acpi_pm)/ clocksource=acpi_pm/" /etc/grub.conf || :
+	EOSH
+
+
+	# I like using mdns for my VMs...
+	config.vm.provision :shell, :inline => <<-EOSH
+		echo "Allowing mDNS traffic"
+		cat <<-EOF > /etc/sysconfig/iptables
+			*filter
+			:INPUT ACCEPT [0:0]
+			:FORWARD ACCEPT [0:0]
+			:OUTPUT ACCEPT [0:0]
+			-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+			-A INPUT -p icmp -j ACCEPT
+			-A INPUT -i lo -j ACCEPT
+			-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+			-A INPUT -p udp -m udp --dport 5353 --destination 224.0.0.251 -j ACCEPT
+			-A INPUT -j REJECT --reject-with icmp-host-prohibited
+			-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+			COMMIT
+		EOF
+		/etc/init.d/iptables restart
+
+	EOSH
+
+
+	#############
+	# and down here is cruft that should be fixfied sometime
+
+
+
+end
+
+
