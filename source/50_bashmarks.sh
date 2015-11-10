@@ -1,1 +1,1 @@
-source "$DOTFILES"/vendor/bashmarks/bashmarks.sh
+source "$DOTFILES"/vendor/bashmarks/shellmarks.sh
