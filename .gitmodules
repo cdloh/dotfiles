@@ -10,3 +10,6 @@
 [submodule "vendor/bashmarks"]
 	path = vendor/bashmarks
 	url = https://github.com/Bilalh/shellmarks
+[submodule "vendor/nvm"]
+	path = vendor/nvm
+	url = https://github.com/creationix/nvm.git
