@@ -9,7 +9,7 @@
 	url = git://github.com/isaacs/nave.git
 [submodule "vendor/bashmarks"]
 	path = vendor/bashmarks
-	url = https://github.com/Bilalh/shellmarks
+	url = https://github.com/Bilalh/shellmarks.git
 [submodule "vendor/nvm"]
 	path = vendor/nvm
 	url = https://github.com/creationix/nvm.git
