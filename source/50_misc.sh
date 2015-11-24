@@ -15,10 +15,31 @@ function titlebar() {
   echo -n $'\e]0;'"$*"$'\a'
 }
 
-# SSH auto-completion based on entries in known_hosts.
-if [[ -e ~/.ssh/known_hosts ]]; then
-  complete -o default -W "$(cat ~/.ssh/known_hosts | sed 's/[, ].*//' | sort | uniq | grep -v '[0-9]')" ssh scp sftp
-fi
+# SSH auto-completion based on entries in known_hosts and config.
+_complete_ssh_hosts ()
+{
+        COMPREPLY=()
+        cur="${COMP_WORDS[COMP_CWORD]}"
+        comp_ssh_hosts=`cat ~/.ssh/known_hosts | \
+                        cut -f 1 -d ' ' | \
+                        sed -e s/,.*//g | \
+                        grep -v ^# | \
+                        uniq | \
+                        grep -v "\[" ;
+                cat ~/.ssh/config | \
+                        grep "^Host " | \
+                        awk '{print $2}'
+                `
+        COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
+        return 0
+}
+complete -F _complete_ssh_hosts ssh scp sftp
 
 # Disable ansible cows }:]
 export ANSIBLE_NOCOWS=1
+
+#some alias'
+alias pwgen='pwgen -1 -c -n -y 12'
+alias sshchk='grep ~/.ssh/config -e'
+alias edithosts='sudo vim /etc/hosts'
+alias curlheaders='curl -vso /dev/null'

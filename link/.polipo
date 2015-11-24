@@ -1,0 +1,17 @@
+proxyAddress = "0.0.0.0"
+proxyPort = 3142
+
+dnsUseGethostbyname = yes
+
+censoredHeaders = from,accept-language,x-pad,link
+censorReferer = maybe
+
+maxConnectionAge = 5m
+maxConnectionRequests = 120
+serverMaxSlots = 8
+serverSlots = 2
+tunnelAllowedPorts = 1-65535
+logSyslog = false
+logFile = /usr/local/var/log/polipo.log
+logLevel = 0xFF
+scrubLogs = false

@@ -1,7 +1,6 @@
 
 # Git shortcuts
 
-alias g='git'
 function ga() { git add "${@:-.}"; } # Add all files by default
 alias gp='git push'
 alias gpa='gp --all'
@@ -161,3 +160,19 @@ if is_osx; then
     fi
   }
 fi
+
+#Adding git auto completion
+_git_prompt='$(__git_ps1)'
+git_prompt_locations=(
+    /usr/local/Cellar/git/*/etc/bash_completion.d/git-prompt.sh
+    /etc/bash_completion.d/git
+    /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
+)
+for f in "${git_prompt_locations[@]}"
+do
+    [[ -f $f ]] && {
+        source "$f"
+        break
+    }
+done
+unset f

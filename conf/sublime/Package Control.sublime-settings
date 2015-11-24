@@ -7,7 +7,9 @@
 	[
 		"Better CoffeeScript",
 		"Package Control",
+		"Pretty JSON",
 		"SublimeLinter",
+		"SublimeLinter-jshint",
 		"SublimeLinter-json"
 	]
 }
