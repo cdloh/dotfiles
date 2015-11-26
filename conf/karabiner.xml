@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<root>
+	<item>
+		<name>F19 to F19</name>
+		<appendix>(F19 to Hyper (ctrl+shift+cmd+opt) + F19 Only)</appendix>
+		<identifier>private.f192f19_escape</identifier>
+		<autogen>
+			--KeyOverlaidModifier--
+			KeyCode::F19,
+			KeyCode::COMMAND_L,
+			ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
+		</autogen>
+	</item>
+	<item>
+		<name>Next/Prev Song Buttons</name>
+		<appendix>Button 4/5 on the mouse to Next/Previous Song buttons</appendix>
+		<identifier>private.song_items</identifier>
+		<!-- The F1/2 bindings are needed since the mouse cannot just hit
+		BUTTON4 or BUTTON5 -->
+		<autogen>__KeyToKey__ KeyCode::F2, ConsumerKeyCode::MUSIC_NEXT</autogen>
+		<autogen>__KeyToKey__ KeyCode::F1, ConsumerKeyCode::MUSIC_PREV</autogen>
+		<autogen>__KeyToKey__ PointingButton::BUTTON5, ConsumerKeyCode::MUSIC_NEXT</autogen>
+		<autogen>__KeyToKey__ PointingButton::BUTTON4, ConsumerKeyCode::MUSIC_PREV</autogen>
+	</item>
+	<item>
+		<name>Volume Up/Down</name>
+		<appendix>Binds F3/4 to Volume Up/Down</appendix>
+		<identifier>private.volume_items</identifier>
+		<autogen>__KeyToKey__ KeyCode::F4, ConsumerKeyCode::VOLUME_UP</autogen>
+		<autogen>__KeyToKey__ KeyCode::F3, ConsumerKeyCode::VOLUME_DOWN</autogen>
+	</item>
+</root>
