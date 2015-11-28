@@ -6,8 +6,13 @@
 	"installed_packages":
 	[
 		"Better CoffeeScript",
+		"Dotfiles Syntax Highlighting",
+		"Git",
+		"GitGutter",
+		"Markdown Preview",
 		"Package Control",
 		"Pretty JSON",
+		"SublimeCodeIntel",
 		"SublimeLinter",
 		"SublimeLinter-jshint",
 		"SublimeLinter-json"
