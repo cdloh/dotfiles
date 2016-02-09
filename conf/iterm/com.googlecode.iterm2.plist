@@ -107,7 +107,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>307</string>
+		<string>322</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -118,23 +118,21 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>1409 110 445 103 0 0 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>396 348 606 456 0 0 1920 1057 </string>
+	<string>269 516 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>650 499 620 392 0 0 1920 1057 </string>
+	<string>530 477 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>147 157 1747 860 0 0 1920 1057 </string>
+	<string>38 139 1501 860 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>655 365 585 451 0 0 1920 1057 </string>
+	<string>212 80 570 473 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
 			<key>Allow Title Reporting</key>
-			<false/>
+			<true/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -299,7 +297,7 @@
 			<key>Background Image Location</key>
 			<string></string>
 			<key>Blend</key>
-			<real>0.30000001192092896</real>
+			<real>0.30000001192092901</real>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
@@ -587,7 +585,7 @@
 			<key>Option Key Sends</key>
 			<integer>1</integer>
 			<key>Prompt Before Closing 2</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
@@ -767,11 +765,11 @@
 	<key>NoSyncSuppressAnnyoingBellOffer</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>465261383.21752697</real>
+	<real>468834776.18166202</real>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>453253694.91898698</real>
+	<real>458551676.65777802</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>465207567.38653201</real>
+	<real>468834715.43972403</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -822,7 +820,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-        <string>~/.dotfiles/conf/iterm</string>
+	<string>/Users/callum/.dotfiles/conf/iterm</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -831,8 +829,6 @@
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
-	<key>SUAutomaticallyUpdate</key>
-	<false/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -842,9 +838,9 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-11-09T12:55:40Z</date>
-	<key>SUSkippedVersion</key>
-	<string>2.9.20151105-nightly</string>
+	<date>2015-11-27T01:19:41Z</date>
+	<key>SUSendProfileInfo</key>
+	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -892,6 +888,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20151023-nightly</string>
+	<string>2.9.20151117-nightly</string>
 </dict>
 </plist>
