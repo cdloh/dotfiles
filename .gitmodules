@@ -13,9 +13,3 @@
 [submodule "vendor/nvm"]
 	path = vendor/nvm
 	url = https://github.com/creationix/nvm.git
-[submodule "link/.vim/bundle/syntastic"]
-	path = link/.vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "link/.vim/bundle/puppet"]
-	path = link/.vim/bundle/puppet
-	url = https://github.com/rodjek/vim-puppet

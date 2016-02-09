@@ -36,17 +36,17 @@ autocmd vimrc BufReadPost *
 " Start vim-plug
 call plug#begin('~/.vim/plugged')
 
+Plug 'rodjek/vim-puppet'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-scripts/vim-svngutter'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'chase/vim-ansible-yaml'
+Plug 'jamessan/vim-gnupg'
 
 " Add plugins to &runtimepath
 call plug#end()
 " End vim-plug
-
-" Activeate pathogen
-execute pathogen#infect()
-
 
 " Filetypes
 if has("autocmd")
