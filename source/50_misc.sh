@@ -27,7 +27,7 @@ _complete_ssh_hosts ()
                         uniq | \
                         grep -v "\[" ;
                 cat ~/.ssh/config | \
-                        grep "^Host " | \
+                        grep --ignore-case "^Host " | \
                         awk '{print $2}'
                 `
         COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
