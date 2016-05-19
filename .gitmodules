@@ -13,3 +13,7 @@
 [submodule "vendor/nvm"]
 	path = vendor/nvm
 	url = https://github.com/creationix/nvm.git
+[submodule "vendor/cert-chain-resolver"]
+	path = vendor/cert-chain-resolver
+	url = https://github.com/zakjan/cert-chain-resolver.git
+	branch = shell
