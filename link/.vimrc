@@ -37,12 +37,12 @@ autocmd vimrc BufReadPost *
 call plug#begin('~/.vim/plugged')
 
 Plug 'rodjek/vim-puppet'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/vim-svngutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'chase/vim-ansible-yaml'
 Plug 'jamessan/vim-gnupg'
+" Plug 'mhinz/vim-signify'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -67,6 +67,10 @@ au BufReadPost ~/svn/openresty-config/** setlocal filetype=nginx
 
 " Don't let the puppet plugin do auto alignment
 let g:puppet_align_hashes = 0
+
+" signify tweaks
+let g:signify_vcs_list = [ 'svn' ]
+let g:signify_update_on_bufenter = 0
 
 " override iskeyword from the puppet bundle to allow "regular" word movement
 " TODO noautoindent isn't enough to stop stupid indenting with comments, need
