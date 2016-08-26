@@ -9,16 +9,14 @@ recipes=(
   git
   git-extras
   htop-osx
-  hub
-  id3tool
-  lesspipe
-  man2html
-  mercurial
-  nmap
-  terminal-notifier
   tree
   wget
-  android-sdk
+  httpie
+  ipcalc
+  jq
+  imapfilter
+  pwgen
+  vagrant-completion
 )
 
 brew_install_recipes
