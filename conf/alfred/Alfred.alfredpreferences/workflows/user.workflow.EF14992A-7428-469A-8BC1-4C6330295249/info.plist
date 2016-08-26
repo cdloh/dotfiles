@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>category</key>
+	<string>Templates</string>
+	<key>connections</key>
+	<dict>
+		<key>1D73315C-948F-4653-9A25-CCC664C6BFAA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F9C3DCAF-6E3E-4101-9030-D06EA89FB24B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>887A5B23-A6E8-47FC-BCF4-09569787C41A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1D73315C-948F-4653-9A25-CCC664C6BFAA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string></string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Pretty JSON</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>json</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Pretty JSON</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>887A5B23-A6E8-47FC-BCF4-09569787C41A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>test=$(/usr/bin/pbpaste | /usr/local/bin/jq '.')
+
+rc=$?; if [[ $rc != 0 ]]; then echo 'JSON Not Valid' exit $rc; fi
+
+/usr/bin/pbpaste | /usr/local/bin/jq '.' | /usr/bin/pbcopy</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>~/.prettyjson.sh</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1D73315C-948F-4653-9A25-CCC664C6BFAA</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>JSON Not Valid</string>
+				<key>title</key>
+				<string>JSON Not Valid</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>F9C3DCAF-6E3E-4101-9030-D06EA89FB24B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>1D73315C-948F-4653-9A25-CCC664C6BFAA</key>
+		<dict>
+			<key>xpos</key>
+			<integer>210</integer>
+			<key>ypos</key>
+			<integer>60</integer>
+		</dict>
+		<key>887A5B23-A6E8-47FC-BCF4-09569787C41A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>20</integer>
+			<key>ypos</key>
+			<integer>60</integer>
+		</dict>
+		<key>F9C3DCAF-6E3E-4101-9030-D06EA89FB24B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>390</integer>
+			<key>ypos</key>
+			<integer>60</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

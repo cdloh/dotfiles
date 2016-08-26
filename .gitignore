@@ -31,6 +31,7 @@ conf/sublime/Package Control.ca-certs/
 #Alfred ignores
 conf/alfred/Alfred.alfredpreferences/clipboard/*
 conf/alfred/Alfred.alfredpreferences/workflows/user.workflow.4BF0CB2C-6CE1-4FB3-92E8-FC32D1B81387/images/*
+conf/alfred/Alfred.alfredpreferences/remote
 
 # Ignore any file with LOCAL in the name (good for per-machine vars/functions)
 *LOCAL*

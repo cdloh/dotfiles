@@ -48,14 +48,14 @@ shopt -s nocasematch
 
 # cache list of vms
 let "TIME=$(date +%s)-10" # keep VMs cache in 10 seconds
-if [ -z "$1" ] || [ $(stat -f "%m" ~/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow\ Data/dk.aiyo.VirtualBoxControl/vms) -ge $TIME ]
+if [ -z "$1" ] || [ $(stat -f "%m" ~/Library/Caches/com.runningwithcrayons.Alfred-3/Workflow\ Data/dk.aiyo.VirtualBoxControl/vms) -ge $TIME ]
    then
    # cache the VMs
-    if [ ! -d ~/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow\ Data/dk.aiyo.VirtualBoxControl/ ]
+    if [ ! -d ~/Library/Caches/com.runningwithcrayons.Alfred-3/Workflow\ Data/dk.aiyo.VirtualBoxControl/ ]
         then
-        mkdir ~/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow\ Data/dk.aiyo.VirtualBoxControl
+        mkdir ~/Library/Caches/com.runningwithcrayons.Alfred-3/Workflow\ Data/dk.aiyo.VirtualBoxControl
     fi
-    VBoxManage list vms -l | sed -n -e '/^Name/N' -e '/\nGroups/P' -e '/\nGuest OS/p' -e '/^Guest OS/p' -e '/^UUID/P' -e '/^State/P' > ~/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow\ Data/dk.aiyo.VirtualBoxControl/vms
+    /usr/local/bin/VBoxManage list vms -l | sed -n -e '/^Name/N' -e '/\nGroups/P' -e '/\nGuest OS/p' -e '/^Guest OS/p' -e '/^UUID/P' -e '/^State/P' > ~/Library/Caches/com.runningwithcrayons.Alfred-3/Workflow\ Data/dk.aiyo.VirtualBoxControl/vms
 fi
 
 #------------
@@ -66,7 +66,7 @@ if [[ $(echo "$1" | grep -c " >" ) -gt 0 ]]
     # Try to extract VM name from query
     NAME=${1%%" >"*}
     # try to find VM in cache (only match the full name)
-    VMINFO=$(grep -A 3 "$NAME$" ~/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow\ Data/dk.aiyo.VirtualBoxControl/vms)
+    VMINFO=$(grep -A 3 "$NAME$" ~/Library/Caches/com.runningwithcrayons.Alfred-3/Workflow\ Data/dk.aiyo.VirtualBoxControl/vms)
     if [[ ! -z "$VMINFO" ]]
         then
         # get UUID for reference
@@ -190,10 +190,10 @@ elif [ ! -z "$UUID" ] && [ $(echo $VMINFO | egrep -c " saved ") -gt 0 ]
     echo "</item>"
 
 else
-    # no VM was selected, get VMs and list them    
+    # no VM was selected, get VMs and list them
 
     while read LINE
-    do 
+    do
 
     case "$LINE" in
         "Name:"*)
@@ -223,7 +223,7 @@ else
                         echo "<item uid=\"Start Headless $UUID\" arg=\"startvm --type headless $UUID\" autocomplete=\"$NAME\">"
                         echo "<title>$NAME Headless</title>"
                         echo "<subtitle>Start Virtual Machine</subtitle>"
-                    
+
                     elif [[ $(echo $LINE | grep -c "aborted") -gt 0 ]]
                         then
                         # VM is aborted make a start link
@@ -265,7 +265,7 @@ else
             ;;
     esac
 
-    done < ~/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow\ Data/dk.aiyo.VirtualBoxControl/vms
+    done < ~/Library/Caches/com.runningwithcrayons.Alfred-3/Workflow\ Data/dk.aiyo.VirtualBoxControl/vms
 fi
 
 echo '</items>'
