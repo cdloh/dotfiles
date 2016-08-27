@@ -8,7 +8,7 @@
 	[
 		"Vintage"
 	],
-	"tab_size": 3
+	"tab_size": 3,
 	"show_full_path": true,
 	"translate_tabs_to_spaces": false,
 	"trim_trailing_white_space_on_save": true
