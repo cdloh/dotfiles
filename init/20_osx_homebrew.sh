@@ -43,7 +43,7 @@ function brew_install_services() {
   if (( ${#services[@]} > 0 )); then
     e_header "Installing Homebrew services: ${services[*]}"
     for service in "${services[@]}"; do
-      brew service install $service
+      brew services start $service
     done
   fi
 }
