@@ -7,6 +7,13 @@ is_osx || return 1
 # Hack to show the first-run brew-cask password prompt immediately.
 brew cask info this-is-somewhat-annoying 2>/dev/null
 
+# Tapping some kegs
+kegs=(
+  caskroom/cask-versions
+)
+
+brew_tap_kegs
+
 # Homebrew casks
 casks=(
   # Applications
