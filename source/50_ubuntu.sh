@@ -10,6 +10,15 @@ alias search="apt-cache search"
 # Make 'less' more.
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+# Source bash completion
+if ! shopt -oq posix; then
+	if [ -f /usr/share/bash-completion/bash_completion ]; then
+		. /usr/share/bash-completion/bash_completion
+	elif [ -f /etc/bash_completion ]; then
+		. /etc/bash_completion
+	fi
+fi
+
 # Switch between already-downloaded node versions.
 function node_ver() {
   (
