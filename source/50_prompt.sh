@@ -118,28 +118,23 @@ function prompt_command() {
 
   # While the simple_prompt environment var is set, disable the awesome prompt.
   [[ "$simple_prompt" ]] && PS1='\n$ ' && return
-
+  local host="host"
   prompt_getcolors
   # http://twitter.com/cowboy/status/150254030654939137
-  PS1="\n"
-  # svn: [repo:lastchanged]
-  PS1="$PS1$(prompt_svn)"
-  # git: [branch:flags]
-  PS1="$PS1$(prompt_git)"
-  # hg:  [branch:flags]
-  PS1="$PS1$(prompt_hg)"
+  PS1=""
   # misc: [cmd#:hist#]
   # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
   #set title for iTerm
   PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
   # path: [user@host:path]
-  PS1="$PS1$c1[$c0\u$c1@$c0\h$c1:$c0\w$c1]$c9"
-  PS1="$PS1\n"
-  # date: [HH:MM:SS]
-  PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"
+  PS1="$PS1$c1[$c0\u$c1@$c0$host$c1:$c0\W$c1]$c9"
+  # svn: [repo:lastchanged]
+  PS1="$PS1$(prompt_svn)"
+  # git: [branch:flags]
+  PS1="$PS1$(prompt_git)"
   # exit code: 127
   PS1="$PS1$(prompt_exitcode "$exit_code")"
-  PS1="$PS1 \$ "
+  PS1="$PS1\$ "
 }
 
 PROMPT_COMMAND="prompt_command"
