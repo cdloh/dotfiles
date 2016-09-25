@@ -17,3 +17,6 @@
 	path = vendor/cert-chain-resolver
 	url = https://github.com/zakjan/cert-chain-resolver.git
 	branch = shell
+[submodule "vendor/testssl.sh"]
+	path = vendor/testssl.sh
+	url = https://github.com/drwetter/testssl.sh
