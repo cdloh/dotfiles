@@ -2,14 +2,22 @@
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
+	"folder_exclude_patterns":
+	[
+		"dist",
+		".git",
+		".sass-cache",
+		".idea",
+		".tmp"
+	],
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
-	"tab_size": 3,
 	"show_full_path": true,
+	"tab_size": 3,
 	"translate_tabs_to_spaces": false,
 	"trim_trailing_white_space_on_save": true
 }
