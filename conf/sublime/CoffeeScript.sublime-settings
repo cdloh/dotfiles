@@ -16,12 +16,13 @@
 	/*
 		Lint your code via coffeelint every time you save a file.
 	*/
-,	"lintOnSave": true
+,	"lintOnSave": false
 	/*
 		Enable or disable refresh the compiled Output on Save.
 		Only available for watch mode.
 	*/
 ,	"watchOnSave": true
+,	"sourceMaps": true
 	/*
 		Enable refreshing compiled JS when CoffeeScript is modified.
 

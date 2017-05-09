@@ -20,3 +20,6 @@
 [submodule "vendor/testssl.sh"]
 	path = vendor/testssl.sh
 	url = https://github.com/drwetter/testssl.sh
+[submodule "vendor/rbenv"]
+	path = vendor/rbenv
+	url = https://github.com/rbenv/rbenv.git

@@ -22,6 +22,11 @@
 # 32  42  green     36  46  cyan
 # 33  43  yellow    37  47  white
 
+
+# Setting this for history
+shopt -s histappend
+HISTSIZE='10000'
+HISTTIMEFORMAT='%F %R: '
 if [[ ! "${prompt_colors[@]}" ]]; then
   prompt_colors=(
     "36" # information color
@@ -137,4 +142,4 @@ function prompt_command() {
   PS1="$PS1\$ "
 }
 
-PROMPT_COMMAND="prompt_command"
+PROMPT_COMMAND="history -a; prompt_command"

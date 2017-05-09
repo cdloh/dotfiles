@@ -27,6 +27,8 @@ conf/sublime/Package Control.merged-ca-bundle
 conf/sublime/Package Control.system-ca-bundle
 conf/sublime/Package Control.cache/
 conf/sublime/Package Control.ca-certs/
+conf/sublime/AngularJS.cache
+conf/sublime/oscrypto-ca-bundle.crt
 
 #Alfred ignores
 conf/alfred/Alfred.alfredpreferences/clipboard/*

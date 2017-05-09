@@ -1,20 +1,51 @@
 {
+	"additionalpath":
+	[
+		"~/.nave/installed/7.0.0/bin"
+	],
+	"binary_file_patterns":
+	[
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip",
+		"node_modules/**",
+		"bower_components/**",
+		".git/**",
+		".tmp/**",
+		"dist/**"
+	],
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Monokai Extended (SL).tmTheme",
+	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
-		"dist",
 		".git",
 		".sass-cache",
 		".idea",
-		".tmp"
 	],
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"AngularJS-sublime-package",
 		"Vintage"
+	],
+	"index_exclude_patterns":
+	[
+		"node_modules/**",
+		"bower_components/**",
+		".git/**"
 	],
 	"show_full_path": true,
 	"tab_size": 3,

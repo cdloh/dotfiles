@@ -58,6 +58,9 @@ Desktop.ini
 # NPM
 .npmignore
 
+# Sublime
+*.sublime-workspace
+
 # Vim
 .swp
 .swo

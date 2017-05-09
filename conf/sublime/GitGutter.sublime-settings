@@ -1,0 +1,6 @@
+{
+	// (ST3, Build 3116+ only)
+	// Enable an hover popup, which shows an diff of the
+	// changed lines.
+	"enable_hover_diff_popup": true,
+}

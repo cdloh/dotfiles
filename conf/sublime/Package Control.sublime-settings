@@ -5,22 +5,36 @@
 	],
 	"installed_packages":
 	[
-		"Better CoffeeScript",
+		"AngularJS-sublime-package",
+		"Bind Zone files",
+		"CodeFormatter",
 		"CoffeeCompile",
 		"Dotfiles Syntax Highlighting",
 		"Git",
 		"GitGutter",
 		"HTML-CSS-JS Prettify",
 		"HTMLBeautify",
+		"HypnotoadSVN",
 		"Markdown Preview",
+		"Monokai Extended",
+		"nginx",
 		"Package Control",
 		"Pretty JSON",
+		"Project Specific Syntax Settings",
 		"Puppet",
 		"SCSS",
+		"StringUtilities",
 		"SublimeCodeIntel",
 		"SublimeLinter",
 		"SublimeLinter-coffeelint",
 		"SublimeLinter-jshint",
-		"SublimeLinter-json"
+		"SublimeLinter-json",
+		"SublimeLinter-lua",
+		"SublimeLinter-php"
+	],
+	"repositories":
+	[
+		"https://github.com/cdloh/AngularJS-sublime-package",
+		"https://github.com/cdloh/sublime-better-coffeescript"
 	]
 }
