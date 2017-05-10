@@ -1,20 +1,20 @@
 Vagrant.configure("2") do |config|
 
-  proxy = ['VAGRANT_PROXY', 'proxy', 'http_proxy'].reduce(false) { |acc, n| acc ||= ENV[n] } || 'http://10.0.2.2:3142'
-  ENV['proxy'] = proxy if proxy
+	proxy = ['VAGRANT_PROXY', 'proxy', 'http_proxy'].reduce(false) { |acc, n| acc ||= ENV[n] } || 'http://10.0.2.2:3142'
+	ENV['proxy'] = proxy if proxy
 
-  if (bridge = ['bridge', 'BRIDGE'].reduce(false) { |acc, key| acc || ENV[key] } )
-    config.vm.network :public_network, type: :dhcp, bridge: bridge
-  end
+	if (bridge = ['bridge', 'BRIDGE'].reduce(false) { |acc, key| acc || ENV[key] } )
+		config.vm.network :public_network, type: :dhcp, bridge: bridge
+	end
 
 	config.vm.provider "virtualbox" do |v|
 		v.customize [ "guestproperty", "set", :id, "--timesync-threshold", 60000 ]
 	end
 
-  if Vagrant.has_plugin?("vagrant-hostmanager")
-    config.hostmanager.enabled = true
-    config.hostmanager.manage_host = true
-    config.hostmanager.ignore_private_ip = true
+	if Vagrant.has_plugin?("vagrant-hostmanager")
+		config.hostmanager.enabled = true
+		config.hostmanager.manage_host = true
+		config.hostmanager.ignore_private_ip = true
 		config.hostmanager.manage_guest = true
 		config.hostmanager.ip_resolver = proc do |machine|
 			result = ""
@@ -23,37 +23,36 @@ Vagrant.configure("2") do |config|
 			end
 			(ip = /^\s*inet .*?(\d+\.\d+\.\d+\.\d+)\s+/.match(result)) && ip[1]
 		end
-  end
+	end
 
-  if Vagrant.has_plugin?("vagrant-proxyconf")
-    #config.proxy.http     = "http://#{proxy}"
-    #config.proxy.https    = "http://#{proxy}"
-    #config.proxy.enabled = true
-    config.apt_proxy.http = "#{proxy}"
-    config.apt_proxy.https = "#{proxy}"
-    config.yum_proxy.http = "#{proxy}"
-  end
+	if Vagrant.has_plugin?("vagrant-proxyconf")
+		#config.proxy.http     = "http://#{proxy}"
+		#config.proxy.https    = "http://#{proxy}"
+		#config.proxy.enabled = true
+		config.apt_proxy.http = "#{proxy}"
+		config.apt_proxy.https = "#{proxy}"
+		config.yum_proxy.http = "#{proxy}"
+	end
 
-  if Vagrant.has_plugin?("vagrant-cachier")
-    # Configure cached packages to be shared between instances of the same base box.
-    # More info on the "Usage" link above
-    config.cache.scope = :box
-    
-    config.cache.auto_detect = false
-    config.cache.enable :chef
-    config.cache.enable :npm
-    
+	if Vagrant.has_plugin?("vagrant-cachier")
+		# Configure cached packages to be shared between instances of the same base box.
+		# More info on the "Usage" link above
+		config.cache.scope = :box
 
-    # OPTIONAL: If you are using VirtualBox, you might want to use that to enable
-    # NFS for shared folders. This is also very useful for vagrant-libvirt if you
-    # want bi-directional sync
-    #config.cache.synced_folder_opts = {
-      #type: :nfs,
-      # The nolock option can be useful for an NFSv3 client that wants to avoid the
-      # NLM sideband protocol. Without this option, apt-get might hang if it tries
-      # to lock files needed for /var/cache/* operations. All of this can be avoided
-      # by using NFSv4 everywhere. Please note that the tcp option is not the default.
-      #mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
-    #}
-  end
+		config.cache.auto_detect = false
+		config.cache.enable :chef
+		config.cache.enable :npm
+
+		# OPTIONAL: If you are using VirtualBox, you might want to use that to enable
+		# NFS for shared folders. This is also very useful for vagrant-libvirt if you
+		# want bi-directional sync
+		#config.cache.synced_folder_opts = {
+			#type: :nfs,
+			# The nolock option can be useful for an NFSv3 client that wants to avoid the
+			# NLM sideband protocol. Without this option, apt-get might hang if it tries
+			# to lock files needed for /var/cache/* operations. All of this can be avoided
+			# by using NFSv4 everywhere. Please note that the tcp option is not the default.
+			#mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+		#}
+	end
 end
