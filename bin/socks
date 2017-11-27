@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+usage="Usage: $0 [-h|--help] [SSH Target] [start|stop|status]"
+
+(($#)) || {
+	ls /tmp | grep socks
+	exit 0
+}
+
+case "$2" in
+	start) ssh -M -S /tmp/$1-sock -f -C2qTnN -D 8080 $1;;
+	stop) ssh -S /tmp/$1-sock -O exit $1;;
+	status) ssh -S /tmp/$1-sock -O check $1;; 
+	-h|--help) echo "$usage";;
+	*) echo "Unknown command: $1"; echo "$usage" >&2; exit 1;;
+esac

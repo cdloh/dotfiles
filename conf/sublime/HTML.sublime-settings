@@ -1,6 +1,7 @@
 {
 	"extensions":
 	[
-		"view"
+		"view",
+		"vm"
 	]
 }

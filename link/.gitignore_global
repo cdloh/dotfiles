@@ -60,6 +60,7 @@ Desktop.ini
 
 # Sublime
 *.sublime-workspace
+.vscode
 
 # Vim
 .swp

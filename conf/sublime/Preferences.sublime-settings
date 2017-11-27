@@ -20,12 +20,14 @@
 		"*.zip",
 		"node_modules/**",
 		"bower_components/**",
+		"target/**",
 		".git/**",
 		".tmp/**",
 		"dist/**"
 	],
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/SublimeLinter/Monokai Extended (SL).tmTheme",
+	"create_window_at_startup": false,
 	"draw_white_space": "selection",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
@@ -33,7 +35,10 @@
 		".git",
 		".sass-cache",
 		".idea",
+		".tmp",
+		"instrumented"
 	],
+	"font_size": 12,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -45,8 +50,10 @@
 	[
 		"node_modules/**",
 		"bower_components/**",
+		"target/**",
 		".git/**"
 	],
+	"open_files_in_new_window": false,
 	"show_full_path": true,
 	"tab_size": 3,
 	"translate_tabs_to_spaces": false,

@@ -1,11 +1,13 @@
 # OSX-only stuff. Abort if not OSX.
 is_osx || return 1
 
-if [ -d $(brew --prefix)/etc/bash_completion.d ]; then
-	for f in $(brew --prefix)/etc/bash_completion.d/*; do
-  	source $f
-	done
-fi
+#if [ -d $(brew --prefix)/etc/bash_completion.d ]; then
+#	for f in $(brew --prefix)/etc/bash_completion.d/*; do
+#  	source $f
+#	done
+#fi
+
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # APPLE, Y U PUT /usr/bin B4 /usr/local/bin?!
 PATH="/usr/local/bin:~/bin:$(path_remove /usr/local/bin)"

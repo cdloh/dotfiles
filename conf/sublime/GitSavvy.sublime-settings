@@ -1,0 +1,7 @@
+// Settings in here override those in "GitSavvy/GitSavvy.sublime-settings",
+
+{
+	"dev_mode": false,
+	"show_full_commit_info": true,
+	"show_commit_diff": "full",
+}

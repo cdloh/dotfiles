@@ -17,5 +17,5 @@ function polipo() {
 		*) echo "Unknown command: $1"; echo "$usage" >&2; return 1;;
 	esac
 }
-export -f polipo
+#export -f polipo
 

@@ -33,7 +33,9 @@ _complete_ssh_hosts ()
         COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
         return 0
 }
-complete -F _complete_ssh_hosts ssh
+
+# Lets get this bash completion for now
+# complete -F _complete_ssh_hosts ssh
 
 # Disable ansible cows }:]
 export ANSIBLE_NOCOWS=1

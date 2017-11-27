@@ -3,4 +3,7 @@
 	// Enable an hover popup, which shows an diff of the
 	// changed lines.
 	"enable_hover_diff_popup": true,
+	"git_binary": {
+		"osx": "/usr/local/bin/git"
+	}
 }
