@@ -5,7 +5,7 @@
 	],
 	"installed_packages":
 	[
-		"AngularJS-sublime-package",
+		"AngularJS",
 		"Better CoffeeScript",
 		"Bind Zone files",
 		"CodeFormatter",
@@ -37,6 +37,5 @@
 	],
 	"repositories":
 	[
-		"https://github.com/cdloh/AngularJS-sublime-package"
 	]
 }
