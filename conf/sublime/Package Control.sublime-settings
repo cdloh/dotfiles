@@ -5,7 +5,6 @@
 	],
 	"installed_packages":
 	[
-		"AngularJS",
 		"Better CoffeeScript",
 		"Bind Zone files",
 		"CodeFormatter",

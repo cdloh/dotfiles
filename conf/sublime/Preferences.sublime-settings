@@ -43,6 +43,7 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"SyncedSideBar",
 		"Vintage"
 	],
 	"index_exclude_patterns":
@@ -56,5 +57,6 @@
 	"show_full_path": true,
 	"tab_size": 3,
 	"translate_tabs_to_spaces": false,
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+	"default_line_ending": "unix"
 }
